@@ -1,0 +1,10 @@
+^C:\USERS\PQUIN\ONEDRIVE\DESKTOP\IMMIGRATION_ANALYSIS\BUILD\CMAKEFILES\0ABA96790BCDA70E36BBC157469E0F90\GENERATE.STAMP.RULE
+setlocal
+C:\Users\pquin\AppData\Local\Microsoft\WinGet\Packages\BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\mingw64\bin\cmake.exe -SC:/Users/pquin/OneDrive/Desktop/immigration_analysis -BC:/Users/pquin/OneDrive/Desktop/immigration_analysis/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/pquin/OneDrive/Desktop/immigration_analysis/build/ImmigrationAnalysis.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
