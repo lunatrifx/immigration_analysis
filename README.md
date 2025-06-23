@@ -1,11 +1,11 @@
 # Illegal Immigration Data Analysis
 
-This project prototypes a C++ and CUDA-based analysis of a DoD dataset on illegal immigration incidents, aiming to visualize actual incident locations and qualitatively compare them against perceived media biases.
+This project prototypes a C++ and CUDA-based analysis of a Department of Defense dataset on illegal immigration incidents/apprehensions, aiming to visualize actual incident locations and qualitatively compare them against perceived media biases in an external thesis.
 
 ## Dataset
 
 Expected data format: CSV file with 11 columns. The relevant columns for this project are:
-`Port, State, Port Code, Border (Canada, Mexico), date, Measure, value (OMIT), Latitude, Longitude`
+`Port, State, Port Code, Border (US-Canada, US-Mexico), date, Measure, value (OMITTED), Latitude, Longitude`
 
 ## Project Structure
 
