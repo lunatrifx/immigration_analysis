@@ -3,6 +3,30 @@
 #include <fstream>
 #include <sstream>
 #include <limits> // For std::numeric_limits
+#include <algorithm> // For std::remove_if, std::isspace
+#include <cctype> // For std::isspace
+
+
+// Creating a function to trim whitespace and trailing whitepace
+static inline std::string& ltrim(std::string& s) {
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(),[](unsigned char ch) {
+        return !std::isspace(ch);
+    }));
+    return s;
+}
+
+static inline std::string& rtrim (std::string& s) {
+    s.erase(std::find_if(s.rbegin(), s.rend(), [](unsigned char ch) {
+        return !std::isspace(ch);
+    }).base(), s.end());
+    return s;
+}
+
+// Trim from both ends
+static inline std::string& trim(std::string& s) {
+    return ltrim(rtrim(s));
+}
+//end trimming function 
 
 std::vector<ImmigrationIncident> DataLoader::loadDataFromCSV(const std::string& filePath) {
     std::vector<ImmigrationIncident> incidents;
@@ -44,11 +68,16 @@ std::vector<ImmigrationIncident> DataLoader::loadDataFromCSV(const std::string& 
 
         }
 
+        if(!std::getline(ss, incident.Border, ',')) {
+            std::cerr << "Error Parsing Border from line: " << line << std::endl;
+        }
+        trim(incident.Border); // Trim whitespace from Border
+
         // Debug Prints
         std::cout << "Parsed Incident: PortName=' " << incident.PortName << " ' "
-                << "', Longitude=' " << incident.Border << " ' "
-                << "', Lat=" << incident.Latitude << " ' "
-                << ", Lon=" << incident.Longitude << " ' "
+                << "', Border=' " << incident.Border << " ' "
+                << "', Latitude=" << incident.Latitude << " ' "
+                << ", Longitude=" << incident.Longitude << " ' "
                 << std::endl;
 
                 // end Debug Prints
