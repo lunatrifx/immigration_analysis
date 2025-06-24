@@ -23,7 +23,7 @@ Expected data format: CSV file with 11 columns. The relevant columns for this pr
     * CMake (version 3.10+)
     * Python 3.x with `pandas`, `geopandas`, `matplotlib`. Install with pip:
         `pip install pandas geopandas matplotlib`
-    * You'll need a shapefile for country/state boundaries for `geopandas`. A good source is Natural Earth Data (e.g., `natural_earth_lowres.zip` for countries). Place it where your Python script can find it, or update the script to download it.
+    * You'll need a shapefile for country/state boundaries for `geopandas`. A good source is Natural Earth Data (e.g., `natural_earth_lowres.zip` for countries). Place it where your Python script can find it, or update the script to download it. You need to use the .shp file.
 
 2.  **Place your dataset:**
     * Save your declassified DoD dataset as `dod_immigration_data.csv` inside the `data/` directory.
