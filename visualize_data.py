@@ -20,14 +20,14 @@ normalize = mcolors.Normalize(vmin=merged['IncidentCount'].min(), vmax=merged['I
 
 # Plot the states with incident counts
 fig, ax = plt.subplots(1, 1, figsize=(15, 10))
-merged.plot(column='IncidentCount', cmap=cmap, linewidth=0.8, ax=ax, edgecolor='0.8', legend=True, norm=normalize, legend_kwds={'label': "Incident Count by State",'orientation': "horizontal"})
-ax.set_title('Incident Counts by State, Data by Department of Defense', fontdict={'fontsize': '15', 'fontweight' : '3'})
+merged.plot(column='IncidentCount', cmap=cmap, linewidth=0.8, ax=ax, edgecolor='0.8', legend=True, norm=normalize, legend_kwds={'label': "Total amount of documented immigration into US (per state)",'orientation': "horizontal"})
+ax.set_title('Total Counts of Legal Entry by State, Data by Department of Defense', fontdict={'fontsize': '15', 'fontweight' : '3'})
 ax.axis('off')
 
 plt.show()
 
 print ("\n-- Media Bias Thesis Discussion ---")
 print ("This visualization illustrates the conflict of real life data and bias in media reporting.\n")
-print ("Does the media focus on states with the highest actual incidents, or elsewhere? \n")
+print ("Does the media focus on states with the highest actual volume/traffic, or elsewhere? \n")
 print ("This visualization is the qualitative showcase for my thesis.")
 

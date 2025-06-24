@@ -70,7 +70,7 @@ std::map<std::string, int> CUDAAnalyzer::analyzeIncidentsByState(const std::vect
    }
 
     // Print Border counts
-    std::cout << "\nIncident Counts by Border:" << std::endl;
+    std::cout << "\nLegal Immigration Numbers by Border:" << std::endl;
     if (borderCounts.empty()) {
         std::cout << "No border data generated." << std::endl;
     } 
@@ -82,7 +82,7 @@ std::map<std::string, int> CUDAAnalyzer::analyzeIncidentsByState(const std::vect
     }
 
     // Print State Counts
-    std::cout << "\nIncident Counts by Individual State:" << std::endl;
+    std::cout << "\nLegal Immigration Numbers by Individual State:" << std::endl;
     if (hostStateCounts.empty()) {
         std::cout << "No state data found." << std::endl;
    } 

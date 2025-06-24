@@ -19,6 +19,7 @@ Expected data format: CSV file with 11 columns. The relevant columns for this pr
 1.  **Prerequisites:**
     * CUDA Toolkit (compatible with your NVIDIA GPU and Visual Studio/GCC)
     * C++ Compiler (GCC/Clang for Linux/macOS, MSVC for Windows)
+    * NVIDIA NSight Installer (You can find this in Extensions of Visual Studio)
     * CMake (version 3.10+)
     * Python 3.x with `pandas`, `geopandas`, `matplotlib`. Install with pip:
         `pip install pandas geopandas matplotlib`
@@ -60,6 +61,43 @@ Expected data format: CSV file with 11 columns. The relevant columns for this pr
     ```
     This script will generate a choropleth map showing the distribution of incidents by state.
 
+3. **If you need to change anything in the code or just for general tips:**
+
+      *** It is stressed that you run this in the Visual Studio Developer Command Prompt *** 
+
+    * If you are navigating to the project:
+       
+        ```bash
+    cd .../../immigration_analysis
+    ```
+    ```bash
+    cd build
+    ```
+    ```bash
+    cd Release
+    ``` 
+    ```bash
+    cd ImmigrationAnalysis.exe
+    ```
+
+    * To run the visualization script, see above. 
+
+    These are all case sensitive (yes we all have been there don't lie)
+
+    * If you are changing or updating the code you NEED TO DO THIS (from Release directory backwards)
+
+    ```bash 
+    cd..
+    ```
+
+    ```bash
+    rmdir /s /q Release
+    ```
+
+    ```bash
+    cmake --build . --config Release
+    ```
+
 ## Testing the Thesis (Media Bias)
 
 After the map is generated, visually compare the "hotspots" on your map (where actual illegal immigration incidents are highest) with your understanding or anecdotal evidence of where the media primarily reports on illegal immigration.
@@ -70,6 +108,6 @@ After the map is generated, visually compare the "hotspots" on your map (where a
 **Future Enhancements for a Deeper Analysis:**
 
 * **Quantitative Media Analysis:** Integrate a dataset of media mentions, potentially by scraping news articles and using NLP to extract locations and then geocoding them. This would allow for a data-driven comparison.
-* **Time Series Analysis:** Analyze trends over time (e.g., month by month) on both the incident data and media data.
+* **Time Series Analysis:** Analyze trends over time (e.g., month by month) on both the reporting data and media data.
 * **More Sophisticated CUDA Analysis:** Implement geospatial binning to create a heatmap instead of just state-level counts, providing finer granularity.
 * **Interactive C++ UI:** Use Qt for a fully integrated desktop application with an interactive map, allowing zooming, panning, and filtering.
