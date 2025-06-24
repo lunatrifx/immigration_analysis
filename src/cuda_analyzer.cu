@@ -40,11 +40,14 @@ std::map<std::string, int> CUDAAnalyzer::analyzeIncidentsByState(const std::vect
 
    for (const auto& incident : incidents) {
     // Logic to normalize and count by Border
+    // *** Special debug *** 
+    std::cout << "DEBUG: CUDAAnalyzer processing border: '" << incident.Border << "'" << std::endl;
+    // *** End Special debug ***
     if (incident.Border == "US-Canada Border") {
-        borderCounts["US-Canada"]++; 
+        borderCounts["US-Canada Border"]++; 
     } 
     else if (incident.Border == "US-Mexico Border") {
-        borderCounts["US-Mexico"]++;
+        borderCounts["US-Mexico Border"]++;
     } 
     else if (incident.Border == "Other Borders") {
         borderCounts["Other Borders"]++;
@@ -55,33 +58,39 @@ std::map<std::string, int> CUDAAnalyzer::analyzeIncidentsByState(const std::vect
     }
 
     // Placeholder for State Derivation 
-    if(incident.Border == "US-Mexico Border") {
-        hostStateCounts["MexicoBorder"]++;
 
-    }
-    else if (incident.Border == "US-Canada Border") {
-        hostStateCounts["CanadaBorder"]++;
-    }
-    else {
-        // Assuming the state is derived from the incident's PortName or State
-        if (!incident.State.empty()) {
-            hostStateCounts[incident.State]++;
-        } else {
-            hostStateCounts["Unknown State"]++;
-        }
+    // *** We'll also do a debug here *** 
+    std::cout << "DEBUG: CUDAAnalyzer processing state: '" << incident.State << "'" << std::endl;
+    // *** End Special debug ***
+    if (!incident.State.empty()) {
+        hostStateCounts[incident.State]++;
+    } else {
+        hostStateCounts["Unknown State"]++;
     }
    }
 
     // Print Border counts
     std::cout << "\nIncident Counts by Border:" << std::endl;
-    for (const auto& pair : borderCounts) {
-        std::cout << "Border: " << pair.first << ", Count:" << pair.second << std::endl;
+    if (borderCounts.empty()) {
+        std::cout << "No border data generated." << std::endl;
+    } 
+    else 
+    {
+        for (const auto& pair : borderCounts) {
+            std::cout << "Border: " << pair.first << ", Count: " << pair.second << std::endl;
+        }
     }
 
     // Print State Counts
-    std::cout << "\nIncident Counts by State:" << std::endl;
-    for (const auto& pair : hostStateCounts) {
-        std::cout << "State: " << pair.first << ", Count: " << pair.second << std::endl;
+    std::cout << "\nIncident Counts by Individual State:" << std::endl;
+    if (hostStateCounts.empty()) {
+        std::cout << "No state data found." << std::endl;
+   } 
+    else 
+    {
+        for (const auto& pair : hostStateCounts) {
+            std::cout << "State: " << pair.first << ", Count: " << pair.second << std::endl;
+        }
     }
 
     return hostStateCounts; // Return the state counts

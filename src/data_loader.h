@@ -12,9 +12,9 @@ struct ImmigrationIncident {
     std::string State;
     std::string PortCode;
     std::string Border;
-    std::string Date;
-    std::string Measure;
-    // Ommitting 'value' as unsure of representation
+    int Date;
+    int Measure;
+    int value;
     double Latitude;
     double Longitude;
 };
@@ -36,5 +36,5 @@ struct GeoGridCell {
 class DataLoader {
 public:
     // Load data from CSV file
-    static std::vector<ImmigrationIncident> loadDataFromCSV(const std::string& filePath);
+    std::vector<ImmigrationIncident> loadIncidents(const std::string& filename);
 };
