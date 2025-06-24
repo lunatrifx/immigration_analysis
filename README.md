@@ -67,7 +67,7 @@ Expected data format: CSV file with 11 columns. The relevant columns for this pr
 
     * If you are navigating to the project:
        
-        ```bash
+   ```bash
     cd .../../immigration_analysis
     ```
     ```bash
@@ -100,9 +100,9 @@ Expected data format: CSV file with 11 columns. The relevant columns for this pr
 
 ## Testing the Thesis (Media Bias)
 
-After the map is generated, visually compare the "hotspots" on your map (where actual illegal immigration incidents are highest) with your understanding or anecdotal evidence of where the media primarily reports on illegal immigration.
+After the map is generated, visually compare the "hotspots" on your map (where actual illegal immigration incidents are highest) with your understanding or anecdotal evidence of where the media primarily reports on immigration in general.
 
-* **Question:** Do the areas with the most incidents align with the areas most frequently highlighted by news media regarding illegal immigration?
+* **Question:** Do the areas with the highest volume or are listed align with the areas most frequently highlighted by news media regarding illegal immigration?
 * **Hypothesis Validation:** If the areas *do not* align, it supports your thesis of media bias. If they largely align, it suggests less bias in location reporting.
 
 **Future Enhancements for a Deeper Analysis:**
