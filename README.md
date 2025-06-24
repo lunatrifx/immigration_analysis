@@ -1,6 +1,6 @@
 # Illegal Immigration Data Analysis
 
-This project prototypes a C++ and CUDA-based analysis of a Department of Defense dataset on illegal immigration incidents/apprehensions, aiming to visualize actual incident locations and qualitatively compare them against perceived media biases in an external thesis.
+This project prototypes a C++ and CUDA-based analysis of a Department of Defense dataset on legal immigration crossings, aiming to visualize actual locations and qualitatively compare them against perceived media biases in an external thesis.
 
 ## Dataset
 
